@@ -1,5 +1,7 @@
 {
-  "name": "Pro-Shot AI Photographer",
-  "description": "A professional-grade AI tool for commercial product photographers to create high-quality, photorealistic product photoshoots using reference images and detailed creative briefs.",
-  "requestFramePermissions": []
+  "name": "D2C Premium Photoshoot Studio",
+  "description": "High-fidelity AI studio for brands to generate consistent product catalogs, lifestyle shoots, and Rajasthan-style palace campaigns.",
+  "requestFramePermissions": [
+    "camera"
+  ]
 }
