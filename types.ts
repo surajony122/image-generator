@@ -20,6 +20,13 @@ export interface ShotConfig {
   editPrompt?: string;
 }
 
+export interface EnvironmentCategory {
+  placeName: string;
+  areas: string[]; 
+  description: string;
+  suggestedBackgroundPrompt: string; // Specific prompt for this set
+}
+
 export interface AIAnalysisResult {
   category: string;
   attributes: {
@@ -31,22 +38,12 @@ export interface AIAnalysisResult {
   };
   recommendedMood: string;
   recommendedLighting: string;
-  recommendedLocations: string[];
-  locationSuggestions: {
-    name: string;
-    description: string;
-  }[];
-  recommendedSceneAreas: string[];
-  recommendedShots: string[];
-  recommendedPoses: string[];
-  suggestedDetailShots: {
-    focus: string;
-    description: string;
-  }[];
+  environmentCategories: EnvironmentCategory[];
   poseSuggestions: {
     poseName: string;
     creativePrompt: string;
     recommendedShotType: string;
+    contextEnvironment: string; 
   }[];
 }
 
@@ -57,6 +54,9 @@ export interface D2CState {
   detailImages: ImageData[];
   referenceImages: ImageData[];
   modelSheet: ImageData[];
+  referenceModelImage: ImageData | null;
+  masterBackgroundAnchor: string | null; // The visual anchor from the FIRST shot
+  globalBackgroundPrompt: string; 
   customPrompt: string;
   negativePrompt: string;
   location: string;
